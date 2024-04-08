@@ -1,0 +1,19 @@
+class Solution:
+    def isRobotBounded(self, instructions: str) -> bool:
+        ###Positive x direction towards north
+        directionX, directionY = 0,1
+        ####### Position at origin
+        positionX, positionY = 0,0
+
+        for p in instructions: 
+            if p=='G':
+                positionX,positionY=positionX+directionX,positionY+directionY
+            elif p=='L':
+                directionX, directionY= -1*directionY, directionX
+            else:
+                directionX, directionY= directionY, -1*directionX
+        return (positionX, positionY) == (0,0) or (directionX,directionY)!= (0,1)
+
+
+
+        
