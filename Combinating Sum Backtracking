@@ -16,3 +16,21 @@ class Solution:
         dfs(0,[],0)
             
         return result
+
+
+################SECOND CODE
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+
+        result =[]
+        def backtrack(target,cur_index,cur_list):
+            if target==0:
+                result.append(cur_list)
+            if target<0:
+                return
+            for i in range(cur_index, len(candidates)):
+                backtrack(target-candidates[i], i,cur_list + [candidates[i]])
+        backtrack(target,0,[])
+        return result
+
+        
