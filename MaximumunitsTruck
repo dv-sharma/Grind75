@@ -1,0 +1,19 @@
+class Solution:
+    def maximumUnits(self, boxTypes: List[List[int]], truckSize: int) -> int:
+
+        sorted_boxlist= sorted(boxTypes, key=lambda x:x[1],reverse=True)
+        total=0
+        sum=0
+        
+        for boxes,units in sorted_boxlist:
+            total+=boxes
+            if total > truckSize:
+                sum+=((truckSize+boxes)-total)*units
+                break
+            else:
+                sum+=boxes*units
+        return sum
+
+
+
+        
