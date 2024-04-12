@@ -1,0 +1,20 @@
+class Solution:
+    def maxAverageRatio(self, classes: List[List[int]], extraStudents: int) -> float:
+        N=len(classes)
+        sum=0
+        maxheap=[]
+
+        for n,d in classes:
+            improvement=-(((n+1)/(d+1))-(n/d))
+            heapq.heappush(maxheap,(improvement,n,d))
+        
+        for _ in range(extraStudents):
+            _,n,d= heapq.heappop(maxheap)
+            n+=1
+            d+=1
+            improvement_priority=-(((n+1)/(d+1))-(n/d))
+            heapq.heappush(maxheap,(improvement,n,d))
+        for _,n,d in maxheap:
+            sum+=n/d
+        return sum/len(maxheap)
+        
