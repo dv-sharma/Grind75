@@ -26,6 +26,15 @@ Previous will move forward to current node
 and current takes the next temp value to mantain the iteration
 
 '''
+##########ITERATIVE
+if head is None or head.next == None:
+            return head
+
+        reversedhead= self.reverseList(head.next)
+        head.next.next=head
+        head.next=None
+
+        return reversedhead
 
 
 
