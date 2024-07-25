@@ -23,5 +23,13 @@ class Solution:
                 result.append(sublist)
         return result
 
+'''
+We are traversing through the levels
+Starting from root node,
+We iterate through the length of the level by adding the left and right child of the root.
+We are adding the element from the right and popping through the left.
+after each level we append the list to our result if its non empty.
+
+'''
 
         
